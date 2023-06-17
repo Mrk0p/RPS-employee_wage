@@ -17,18 +17,24 @@ public class EmployeeWage {
 
         int randomNum = random.nextInt(3);
 
-        if (randomNum == 1) {
-            System.out.println("Employee  is Present");
-            dailyWage = wagePerHour * fullDayHours;
-            System.out.println("Monthly wage for Full Day is: " + dailyWage);
+        switch (randomNum) {
+
+            case 0:
+                System.out.println("Employee is Absent");
+                System.out.println("Monthly Salary will be: ");
+                break;
+            case 1:
+                System.out.println("Employee is Present");
+                System.out.println("Monthly salary for Full Day: ");
+                dailyWage = wagePerHour * fullDayHours;
+                break;
+            case 2:
+                System.out.println("Employee is Present");
+                System.out.println("Monthly Salary for Half Day: ");
+                dailyWage = wagePerHour * halfDayHours;
+                break;
+
         }
-        else if (randomNum == 2) {
-            dailyWage = halfDayHours * wagePerHour;
-            System.out.println("Monthly wage for Half Day is: " + dailyWage);
-        }
-        else {
-            System.out.println("Employee  is Absent");
-            System.out.println("Daily wage is: " + dailyWage);
-        }
+        System.out.println(+dailyWage);
     }
 }
