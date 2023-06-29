@@ -4,47 +4,65 @@ import java.util.Random;
 
 public class EmployeeWage {
 
-    public static int wagePerHour = 20;
-    public static int fullDayHours = 8;
-    public static int halfDayHours = 4;
-    public static int dailyWage= 0;
-    public static int monthlyWage = 0;
-    public static int workingDaysPerMonth = 20;
-    public static int days = 0;
-    public static int monthlyHours = 0;
+  public static int fullDayHours = 8;
+  public static int halfDayHours = 4;
+  private final String companyName;
+  private final int wagePerHour;
+  private final int workingHours;
+  private final int workingDays;
 
-    public static int EmpWage() {
-        System.out.println("Welcome to Employee Wage Computation Program");
+    public EmployeeWage(String companyName, int wagePerHour, int workingHours, int workingDays) {
+        this.companyName = companyName;
+        this.wagePerHour = wagePerHour;
+        this.workingHours = workingHours;
+        this.workingDays = workingDays;
+    }
+    public int calculateWage() {
+        int dailyWage = 0;
+        int totalWage = 0;
+        int totalWorkingHours = 0;
+        int days = 0;
+
         Random random = new Random();
 
-        while (days != 20 && monthlyHours != 100) {
+        while (totalWorkingHours <= workingDays && days <= workingDays) {
             days++;
-            int randomNum = random.nextInt(3);
+            int empCheck = random.nextInt(3);
 
-            switch (randomNum) {
-
-                case 0:
-                    System.out.println("Employee is Absent");
-                    break;
+            switch (empCheck) {
                 case 1:
-                    System.out.println("Monthly wage for Full Day: ");
+                    System.out.println("FullDay Present .");
                     dailyWage = wagePerHour * fullDayHours;
+                    totalWorkingHours = totalWorkingHours + fullDayHours;
                     break;
+
                 case 2:
-                    System.out.println("Monthly wage for Half Day: ");
-                    dailyWage = wagePerHour * halfDayHours;
-
+                    System.out.println(" HalfDay Present .");
+                     dailyWage = wagePerHour * halfDayHours;
+                    totalWorkingHours = totalWorkingHours + halfDayHours;
+                    break;
+                default:
+                    System.out.println("Employee Absent");
             }
-            monthlyWage = monthlyWage + dailyWage;
-            System.out.println("Day" + days + " Salary is: " + dailyWage);
-
+            System.out.println("Day :"+ days + empCheck +" ");
+            System.out.println("Working Hours :"+ totalWorkingHours +" ");
+            System.out.println("Daily wage is :"+ dailyWage +" ");
         }
-        System.out.println("Monthly Salary: " + monthlyWage);
-        return monthlyWage;
-
+        return totalWorkingHours * wagePerHour;
     }
+
     public static void main(String[] args) {
 
-        EmpWage();
+        EmployeeWage Nike = new EmployeeWage("Nike",20,100,20);
+
+        EmployeeWage Adidas = new EmployeeWage("Adidas",22,95,22);
+
+        EmployeeWage Puma =  new EmployeeWage("Puma",20,90,25);
+
+        System.out.println("Total employee's wage of company :"+Nike.companyName+"-"+Nike.calculateWage());
+
+        System.out.println("Total employee's wage of company :"+Adidas.companyName+"-"+Adidas.calculateWage());
+
+        System.out.println("Total employee's wage of company :"+Puma.companyName+"-"+Puma.calculateWage());
     }
 }
