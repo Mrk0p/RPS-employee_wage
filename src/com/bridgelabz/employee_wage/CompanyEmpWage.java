@@ -9,7 +9,6 @@ public class CompanyEmpWage {
 
     CompanyEmpWage(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
     {
-
         COMPANY_NAME = companyName;
         WAGE_PER_HR = wagePerHr;
         MAX_WORKING_DAYS = maxWorkingDays;
@@ -17,14 +16,12 @@ public class CompanyEmpWage {
         totalEmpWage = 0;
     }
 
-
     void setTotalEmployeeWage(int totalEmpWage)
     {
         this.totalEmpWage = totalEmpWage;
     }
 
-    public String toString()
-    {
+    public String toString() {
         System.out.println("Details of " + COMPANY_NAME + " employee");
         System.out.println("-----------------------------------------------------");
         System.err.println("Wage per hour:" + WAGE_PER_HR);

@@ -6,4 +6,6 @@ public interface IEmployeeWage {
 
     public void calculateTotalWage();
 
+    public int getTotalEmpWage(String companyName);
+
 }
