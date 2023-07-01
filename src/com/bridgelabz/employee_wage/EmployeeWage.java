@@ -1,6 +1,6 @@
 package com.bridgelabz.employee_wage;
 
-public class EmployeeWage {
+public class EmployeeWage implements IEmployeeWage {
 
     public static final int PART_TIME = 1;
     public static final int FULL_TIME = 2;
